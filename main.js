@@ -95,10 +95,10 @@ SlideshowView.prototype._addItem = function(item, collection, opts) {
             configuredOpts = _(opts).extend(self._contentViewOpts),
             perSourceOpts;
         if (content.get('source')==sources.TWITTER) {
-            return _(configuredOpts).extend(self._sourceOpts['twitter']||{});
+            return _(configuredOpts).extend(self._sourceOpts.twitter||{});
         }
         if (content.get('source')==sources.RSS) {
-            return _(configuredOpts).extend(self._sourceOpts['rss']||{});
+            return _(configuredOpts).extend(self._sourceOpts.rss||{});
         }
         return configuredOpts;
     }
