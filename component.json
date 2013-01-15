@@ -1,11 +1,11 @@
 {
   "name": "streamhub-slidesjs",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": [
     "./main.css",
     "./main.js"
   ],
   "dependencies": {
-    "streamhub-backbone": "*"
+    "streamhub-backbone": "1.0.0"
   }
 }
