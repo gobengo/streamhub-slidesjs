@@ -1,12 +1,11 @@
 {
-  "name": "streamhub-isotope",
+  "name": "streamhub-slidesjs",
   "version": "0.0.0",
   "main": [
     "./main.css",
     "./main.js"
   ],
   "dependencies": {
-    "streamhub-backbone": "*",
-    "isotope": "*"
+    "streamhub-backbone": "*"
   }
 }
