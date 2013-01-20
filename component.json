@@ -6,6 +6,7 @@
     "./main.js"
   ],
   "dependencies": {
-    "streamhub-backbone": "1.0.0"
+    "streamhub-backbone": "1.0.0",
+    "slidesjs-bower": "1.1.8"
   }
 }
