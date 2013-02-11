@@ -1,41 +1,9 @@
+
 <!DOCTYPE html>
+
 <html>
 <head>
     <title>StreamHub Backbone Example</title>
-    <script src="components/requirejs/require.js"
-            type="text/javascript"></script>
-    <script src="http://zor.t402.livefyre.com/wjs/v3.0.sdk/javascripts/livefyre.js"></script>
-    <script type="text/javascript">
-    // Require.js Config
-    require.config({
-      packages: [{
-        name: 'streamhub-backbone',
-        location: 'components/streamhub-backbone'
-      }],
-      paths: {
-        "streamhub-slidesjs": 'main',
-        slidesjs: 'components/slidesjs-bower/source/slides.jquery',
-        jquery: 'components/jquery/jquery',
-        underscore: 'components/underscore/underscore',
-        backbone: 'components/backbone/backbone',
-        mustache: 'components/mustache/mustache',
-        text: 'components/requirejs-text/text'
-      },
-      shim: {
-        backbone: {
-            deps: ['underscore', 'jquery'],
-            exports: 'Backbone'
-        },
-        underscore: {
-            exports: '_'
-        },
-        slidesjs: {
-            deps: ['jquery'],
-            exports: '$'
-        }
-      }
-    });
-    </script>
     <style>
     body {
         color: #222;
@@ -43,31 +11,41 @@
         line-height: 1.25;
     }
     </style>
-    <link rel="stylesheet" type="text/css" href="components/streamhub-backbone/main.css">
+    <link rel="stylesheet" type="text/css" href="lib/streamhub-backbone/main.css">
 </head>
 <body>
 <div id="container">
   <h1>StreamHub SlidesJS</h1>
   <div id="example" class="example"></div>
 </div>
+<!-- Scripts -->
+<script src="lib/requirejs/require.js"
+            type="text/javascript"></script>
 <script type="text/javascript">
-// Now to load the example
-require(['streamhub-backbone', 'streamhub-slidesjs'],
+var Config = {
+    network: "labs-t402.fyre.co",
+    siteId: "303827",
+    articleId: "fans_49ers_media",
+    el: document.getElementById('example')
+};
+require(['requirejs.conf'], function () { require([
+    'streamhub-backbone',
+    'streamhub-slidesjs'],
 function(Hub, SlideshowView){
-    function loadApp (sdk) {
-        var app = window.app = new Hub({
-            sdk: sdk,
-            collection: {
-                siteId: "303772",
-                articleId: "prod0"
-            },
-            el: document.getElementById("example"),
-            view: SlideshowView
-        });
-    }
     fyre.conv.load({
         network: "largetail-0.fyre.co"
-    }, [{app: 'sdk'}], loadApp);
+    }, [{app: 'sdk'}], function loadSlideshowView (sdk) {
+        var mediaCollection = new Hub.Collection(),
+            slideshowView = new SlideshowView({
+                el: Config.el,
+                collection: mediaCollection
+            });
+        mediaCollection.setRemote({
+            sdk: sdk,
+            siteId: Config.siteId,
+            articleId: Config.articleId
+        });
+    });
 });
 </script>
 </body>

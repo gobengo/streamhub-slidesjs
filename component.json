@@ -1,5 +1,6 @@
 {
   "name": "streamhub-slidesjs",
+  "description": "a pluggable SlideshowView for use with StreamHub-Backbone. Uses the jQuery-SlidesJS plugin to lay out Content",
   "version": "1.0.0",
   "main": [
     "./main.css",
