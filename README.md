@@ -1,6 +1,6 @@
 StreamHub-SlidesJS displays Collections of StreamHub Content as a slideshow using [SlidesJS](http://slidesjs.com/). It exposes a pluggable SlideshowView for [StreamHub-Backbone](https://github.com/gobengo/streamhub-backbone).
 
-<img src="http://d.pr/i/AjVB+" alt="StreamHub-Isotope Screenshot" height="300px"/>
+<img src="http://d.pr/i/AjVB+" alt="StreamHub-SlidesJS Screenshot" height="300px"/>
 
 [Livefyre StreamHub](http://www.livefyre.com/streamhub/) is the web's first Engagement Management System. StreamHub turns your site into a real-time social experience. Curate images, videos, and Tweets from across the social web, right into live blogs, chats, widgets, and dashboards. The world's biggest publishers and brands use StreamHub to power their online Content Communities.
 
@@ -55,7 +55,7 @@ Then you can use it like:
     })
 
 # Documentation
-You can access the API Reference [on GitHub](http://gobengo.github.com/streamhub-isotope/docs)
+You can access the API Reference [on GitHub](http://gobengo.github.com/streamhub-slidesjs/docs)
 
 The API reference also lives in the `docs/` directory. You can view them in your browser with:
 
