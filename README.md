@@ -31,11 +31,15 @@ StreamHub-SlidesJS displays Collections of StreamHub Content as a slideshow usin
         });
     });
 
-# Using It
+# Getting Started
 
-[Bower](http://twitter.github.com/bower/) is used for dependency management. You can install the dependencies with
+Install npm
 
-    bower install
+Use npm to install this package
+
+    npm install
+
+[Bower](http://twitter.github.com/bower/) is used for dependency management. The npm postinstall script will run `bower install` and put dependencies in `lib/`.
 
 StreamHub-SlidesJS is written as an [AMD](http://requirejs.org/docs/whyamd.html) module. You will need to use an AMD loader like [RequireJS](http://requirejs.org/) to use it. Add it as a package in your RequireJS config:
 
@@ -51,5 +55,19 @@ Then you can use it like:
     })
 
 # Documentation
+You can access the API Reference [on GitHub](http://gobengo.github.com/streamhub-isotope/docs)
 
-There is HTML documentation in the `docs/` directory.
+The API reference also lives in the `docs/` directory. You can view them in your browser with:
+
+    open docs/index.html
+
+You can re-build the documentation using:
+
+    npm run-script doc
+
+# Tests
+Behavior tests are included in the `tests/spec` directory. You can access an online test runner for the latest release [on GitHub](http://gobengo.github.com/streamhub-slidesjs/tests).
+
+You can also run the tests via:
+
+    npm test
