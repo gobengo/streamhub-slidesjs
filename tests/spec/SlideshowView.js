@@ -1,19 +1,19 @@
 define([
     'jasmine-jquery',
-    'streamhub-isotope',
+    'streamhub-slidesjs',
     'streamhub-backbone'],
-function (jasmine, IsotopeView, Hub) {
-describe('IsotopeView', function () {
+function (jasmine, SlideshowView, Hub) {
+describe('SlideshowView', function () {
     
     it ("throws if constructed without a Hub.Collection", function () {
         expect(function () {
-            new IsotopeView();
+            new SlideshowView();
         }).toThrow();
         expect(function () {
-            new IsotopeView({});
+            new SlideshowView({});
         }).toThrow();
         expect(function () {
-            new IsotopeView({
+            new SlideshowView({
                 collection: []
             });
         }).toThrow();
@@ -22,7 +22,7 @@ describe('IsotopeView', function () {
     describe ("when constructed with only a Hub.Collection", function () {
         var view;
         beforeEach(function () {
-            this.view = new IsotopeView({
+            this.view = new SlideshowView({
                 collection: new Hub.Collection()
             });
         });
@@ -51,7 +51,7 @@ describe('IsotopeView', function () {
     describe ("when constructed with an .el and a Hub.Collection", function () {
         beforeEach(function () {
             setFixtures('<div id="env"></div>');
-            this.view = new IsotopeView({
+            this.view = new SlideshowView({
                 collection: new Hub.Collection(),
                 el: $('#env')
             });
@@ -76,34 +76,6 @@ describe('IsotopeView', function () {
 
     describe ("when .collection.setRemote is called after construction", function () {
         xit ("should display data from the remote Collection", function () {
-        });
-    });
-
-    xdescribe ("when constructed using the initialNumToDisplay option", function () {
-        beforeEach(function () {
-            setFixtures('<div id="env"></div>');
-            this.view = new IsotopeView({
-                el: $('#env'),
-                collection: new Hub.Collection(),
-                initialNumToDisplay: 5
-            });
-        });
-        describe ("when rendered", function () {
-            it ("only has N images on first imagesLoaded event", function () {
-                var initialImagesLoaded = false;
-                runs(function () {
-                    this.view.render();
-                    this.view.$el.imagesLoaded(function () {
-                        initialImagesLoaded = true;
-                    });
-                });
-                waitsFor(function () {
-                    return initialImagesLoaded;
-                });
-                runs(function () {
-                    // check for only that many images?
-                });
-            });
         });
     });
 }); 
