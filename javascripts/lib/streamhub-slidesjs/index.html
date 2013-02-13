@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StreamHub-SlidesJS Example</title>
+    <style>
+    body {
+        color: #222;
+        font: 14px sans-serif;
+        line-height: 1.25;
+    }
+    </style>
+    <link rel="stylesheet" type="text/css" href="lib/streamhub-backbone/main.css">
+</head>
+<body>
+<div id="container">
+  <h1>StreamHub SlidesJS</h1>
+  <div id="example" class="example"></div>
+</div>
+<!-- Scripts -->
+<script src="lib/requirejs/require.js"
+        type="text/javascript"></script>
+<script type="text/javascript">
+var Config = {
+    network: "labs-t402.fyre.co",
+    siteId: "303827",
+    articleId: "fans_49ers_media",
+    el: document.getElementById('example')
+};
+require(['requirejs.conf'], function () { require([
+    'streamhub-backbone',
+    'streamhub-slidesjs'],
+function(Hub, SlideshowView){
+    fyre.conv.load({
+        network: Config.network
+    }, [{app: 'sdk'}], function loadSlideshowView (sdk) {
+        var mediaCollection = new Hub.Collection(),
+            slideshowView = new SlideshowView({
+                el: Config.el,
+                collection: mediaCollection
+            });
+        mediaCollection.setRemote({
+            sdk: sdk,
+            siteId: Config.siteId,
+            articleId: Config.articleId
+        });
+    });
+});});
+</script>
+</body>
+</html>
