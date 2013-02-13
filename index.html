@@ -32,6 +32,30 @@
 
 <p><img src="http://d.pr/i/AjVB+" alt="StreamHub-SlidesJS Screenshot" height="300px"></p>
 
+<!-- EXAMPLE -->
+<h1>Live Example</h1>
+<style>
+#example-container {
+  height: 400px;
+  overflow-y: hidden;
+  margin-bottom: 1em;
+}
+.hub-SlideshowView .hub-item {
+  height: 400px;
+  padding: 0;
+}
+.hub-SlideshowView .hub-item .hub-heading,
+.hub-SlideshowView .hub-item .hub-body-html {
+  display: none;
+}
+</style>
+<div id="example-container">
+  <div id="example"></div>
+</div>
+<script src="javascripts/lib/requirejs/require.js"
+        data-main="javascripts/main"></script>
+<!-- /EXAMPLE -->
+
 <p><a href="http://www.livefyre.com/streamhub/">Livefyre StreamHub</a> is the web's first Engagement Management System. StreamHub turns your site into a real-time social experience. Curate images, videos, and Tweets from across the social web, right into live blogs, chats, widgets, and dashboards. The world's biggest publishers and brands use StreamHub to power their online Content Communities.</p>
 
 <p><a href="https://github.com/gobengo/streamhub-backbone">StreamHub-Backbone</a> displays Collections of Content in StreamHub Networks. To get your own Network so you can create your own Collections, engage your own community of SSO Users, and curate Content that appeals to your users, <a href="http://www.livefyre.com/streamhub/">contact Livefyre</a> about subscribing to StreamHub.</p>
@@ -102,14 +126,6 @@ function loadSlideshowView (sdk) {
 <pre><code>npm run-script doc
 </code></pre>
 
-<h1>Tests</h1>
-
-<p>Behavior tests are included in the <code>tests/spec</code> directory. You can access an online test runner for the latest release <a href="http://gobengo.github.com/streamhub-slidesjs/tests">on GitHub</a>.</p>
-
-<p>You can also run the tests via:</p>
-
-<pre><code>npm test
-</code></pre>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/gobengo">gobengo</a></p>

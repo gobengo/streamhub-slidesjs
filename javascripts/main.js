@@ -3,8 +3,8 @@ require(['requirejs.conf'], function () {
 require([
 	'fyre',
 	'streamhub-backbone',
-	'streamhub-isotope'],
-function (fyre, Hub, IsotopeView) {
+	'streamhub-slidesjs'],
+function (fyre, Hub, SlideshowView) {
 	var Config = {
 		el: document.getElementById('example'),
 		network: 'livefyre.com',
@@ -16,7 +16,7 @@ function (fyre, Hub, IsotopeView) {
 	}, [{ app: 'sdk' }],
 	function (sdk) {
 		var collection = new Hub.Collection(),
-			view = new IsotopeView({
+			view = new SlideshowView({
 				el: Config.el,
 				collection: collection
 			});
