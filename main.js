@@ -1,37 +1,38 @@
+/**
+ * @module SlideshowView
+ * @author Benjamin Goering - https://github.com/gobengo
+ */
 define([
-'backbone',
-'mustache',
-'text!streamhub-backbone/templates/Content.html',
-'streamhub-backbone/views/ContentView',
-'streamhub-backbone/const/sources',
-'slidesjs'
-], function (
-Backbone,
-Mustache,
-ContentTemplate,
-ContentView,
-sources,
-slides) {
+    'backbone',
+    'mustache',
+    'text!streamhub-backbone/templates/Content.html',
+    'streamhub-backbone/views/ContentView',
+    'streamhub-backbone/const/sources',
+    'slidesjs'], 
+function (Backbone, Mustache, ContentTemplate, ContentView, sources, slides) {
 
-var SlideshowView = Backbone.View.extend(
-/** @lends SlideshowView.prototype */
-{
+/**
+ * SlideshowView displays Content using SlidesJS (http://slidesjs.com/)
+ * @constructor
+ * @class SlideshowView
+ * @alias module:SlideshowView
+ * @augments Backbone.View
+ * @param {Object} opts - Options
+ * @param {Collection} opts.collection - A `Hub.Collection` of `Content`
+ * @param {Object} opts.contentViewOptions - Options to be passed to any `Content` Views this instantiates
+ *        This is useful for passing custom templates for Content
+ * @param {Object} opts.sources - An object to configure stuff on a per-source basis
+ *        Supports `twitter` and `rss` sub objects with the same opts as this root level
+ */
+var SlideshowView = Backbone.View.extend({
+
     /**
-    SlideshowView displays Content using SlidesJS (http://slidesjs.com/)
-
-    @class SlideshowView
-    @param {Collection} opts.collection - A Collection of Content (see models/Collection)
-    @param {Object} opts.contentViewOptions - Options to be passed to any Content Views this instantiates
-           This is useful for passing custom templates for Content
-    @param {Object} sources - An object to configure stuff on a per-source basis
-           Supports `twitter` and `rss` sub objects with the same opts as this root level
-
-    @augments Backbone.View
-    @requires backbone
-    @requires mustache
-
-    @todo allow passing custom contentView
-    */
+     * initializes a `SlideshowView`, and is called automatically on construction
+     * @param {Object} opts - Options to construct with
+     * @see module:SlideshowView
+     * @protected
+     * @todo allow passing custom contentView
+     */
     initialize: function (opts) {
         var that = this;
         this._sourceOpts = opts.sources || {};
@@ -40,13 +41,24 @@ var SlideshowView = Backbone.View.extend(
         this.collection.on('add', this._addItem, this);
         this.collection.on('initialDataLoaded', this.render, this);
     },
-    tagName: "div",
-    className: "hub-SlideshowView",
-    events: {
-    },
+
     /**
-    Render the initial Content and init the slides plugin
-    */
+     * @property {String} The default HTML Element to use for this View
+     * @default hub-IsotopeView
+     */
+    tagName: "div",
+
+    /**
+     * @property {String} The CSS class that should be added to this View's containing Element
+     * @default hub-IsotopeView
+     */
+    className: "hub-SlideshowView",
+
+    /**
+     * Render the initial display of the Collection, including
+     *     any initially set Content
+     * @public
+     */
     render: function () {
         var self = this;
 
@@ -74,8 +86,10 @@ var SlideshowView = Backbone.View.extend(
 });
 
 /**
-Add a pice of Content to the el
-*/
+ * Add Content to the view by inserting it in the DOM
+ * @private
+ * @param {Content} item - A Content model
+ */
 SlideshowView.prototype._addItem = function(item, collection, opts) {
     var self = this,
         newItem = $(document.createElement('div')),
