@@ -1,0 +1,11 @@
+{
+  "name": "StreamHub-Isotope Landing Page",
+  "version": "0.0.0",
+  "main": [
+    "www/src/main.js",
+    "www/css/style.css"
+  ],
+  "dependencies": {
+    "streamhub-slidesjs": "git://github.com/gobengo/streamhub-slidesjs.git"
+  }
+}
