@@ -4,7 +4,7 @@
   "author": {
     "name": "Ben Goering"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "devDependencies": {
     "bower": "*",
     "jsdoc3": "git://github.com/jsdoc3/jsdoc.git#v3.1.0"
