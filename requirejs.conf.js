@@ -17,11 +17,15 @@ require.config({
         jasmine: 'lib/jasmine/lib/jasmine-core/jasmine',
         'jasmine-html': 'lib/jasmine/lib/jasmine-core/jasmine-html',
         'jasmine-jquery': 'lib/jasmine-jquery/lib/jasmine-jquery',
+        slidesjs: 'lib/slidesjs-bower/source/slides.jquery',
         fyre: 'http://zor.t402.livefyre.com/wjs/v3.0/javascripts/livefyre'
     },
     shim: {
         jasmine: {
             exports: 'jasmine'
+        },
+        slidesjs: {
+            deps: ['jquery'],
         },
         'jasmine-html': {
             deps: ['jasmine'],

@@ -1,9 +1,7 @@
-
 <!DOCTYPE html>
-
 <html>
 <head>
-    <title>StreamHub Backbone Example</title>
+    <title>StreamHub-SlidesJS Example</title>
     <style>
     body {
         color: #222;
@@ -20,7 +18,7 @@
 </div>
 <!-- Scripts -->
 <script src="lib/requirejs/require.js"
-            type="text/javascript"></script>
+        type="text/javascript"></script>
 <script type="text/javascript">
 var Config = {
     network: "labs-t402.fyre.co",
@@ -33,7 +31,7 @@ require(['requirejs.conf'], function () { require([
     'streamhub-slidesjs'],
 function(Hub, SlideshowView){
     fyre.conv.load({
-        network: "largetail-0.fyre.co"
+        network: Config.network
     }, [{app: 'sdk'}], function loadSlideshowView (sdk) {
         var mediaCollection = new Hub.Collection(),
             slideshowView = new SlideshowView({
@@ -46,7 +44,7 @@ function(Hub, SlideshowView){
             articleId: Config.articleId
         });
     });
-});
+});});
 </script>
 </body>
 </html>
